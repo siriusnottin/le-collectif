@@ -1,26 +1,359 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ========================================
+     COLLECTIVE COLORS
+     ======================================== */
+  --color-collective-bg: #5e5240;
+  --color-collective-bg-dark: #4a4133;
+  --color-collective-cream: #fcfcf9;
+  --color-collective-accent: #21808d;
+  --color-collective-accent-light: #32b8c6;
+  --color-collective-accent-dark: #1d7480;
+
+  /* ========================================
+     COLOR PALETTE
+     ======================================== */
+  --color-beige: #dcc7aa;
+  --color-beige-light: #e8d7c3;
+  --color-beige-dark: #c9b396;
+  
+  --color-sand: #e4cfa3;
+  --color-sand-light: #eed9b5;
+  --color-sand-dark: #d4bf93;
+  
+  --color-off-white: #f7f3ee;
+  
+  --color-terracotta: #c96a4b;
+  --color-terracotta-light: #d4805f;
+  --color-terracotta-dark: #b45a3d;
+  
+  --color-brown: #6b4f3b;
+  --color-brown-50: #f7f5f3;
+  --color-brown-100: #e9e5e1;
+  --color-brown-200: #d4cbc3;
+  --color-brown-300: #bfb1a5;
+  --color-brown-400: #aa9787;
+  --color-brown-500: #6b4f3b;
+  --color-brown-600: #584230;
+  --color-brown-700: #453426;
+  --color-brown-800: #32271b;
+  --color-brown-900: #1f1910;
+  --color-brown-light: #856246;
+  --color-brown-dark: #584230;
+  
+  --color-ochre: #cba052;
+  --color-ochre-light: #d6b06a;
+  --color-ochre-dark: #b98f44;
+  
+  --color-pearl-grey: #d9d6cf;
+  
+  --color-cream: #efe6da;
+  --color-cream-light: #f5ede3;
+  --color-cream-dark: #e3d9cd;
+  
+  --color-olive-green: #a6a381;
+  --color-olive-green-light: #b6b393;
+  --color-olive-green-dark: #96936f;
+  
+  --color-warm-brown: #8c5c3e;
+  --color-warm-brown-light: #a06f50;
+  --color-warm-brown-dark: #774d32;
+  
+  --color-khaki: #3c3a2a;
+  --color-khaki-light: #514f3a;
+  --color-khaki-dark: #2d2b1f;
+
+  /* Teal scale */
+  --color-teal-50: #e8f5f7;
+  --color-teal-100: #c1e4e9;
+  --color-teal-200: #9ad3db;
+  --color-teal-300: #32b8c6;
+  --color-teal-400: #29a4b1;
+  --color-teal-500: #21808d;
+  --color-teal-600: #1d7480;
+  --color-teal-700: #1a6773;
+  --color-teal-800: #175a66;
+  --color-teal-900: #134d59;
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  --font-family-display: "Playfair Display", Georgia, serif;
+  --font-family-sans: "DM Sans", system-ui, sans-serif;
+
+  /* ========================================
+     SHADOWS
+     ======================================== */
+  --shadow-soft: 0 2px 15px -3px rgb(0 0 0 / 0.07), 0 10px 20px -2px rgb(0 0 0 / 0.04);
+  --shadow-soft-lg: 0 10px 40px -15px rgb(0 0 0 / 0.1), 0 20px 40px -10px rgb(0 0 0 / 0.08);
+
+  /* ========================================
+     ANIMATIONS
+     ======================================== */
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ========================================
+   BASE STYLES
+   ======================================== */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  font-weight: 400;
+}
+
+/* ========================================
+   CUSTOM COMPONENTS (standard CSS classes)
+   ======================================== */
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--color-collective-accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s var(--ease-snappy);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  text-decoration: none;
+  font-family: var(--font-family-sans);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-collective-accent-dark);
+  transform: scale(1.05);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--color-collective-bg);
+  color: var(--color-collective-cream);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s var(--ease-snappy);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  text-decoration: none;
+  font-family: var(--font-family-sans);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-collective-bg-dark);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s var(--ease-fluid);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-soft-lg);
+  transform: translateY(-2px);
+}
+
+.link-underline {
+  position: relative;
+  padding-bottom: 0.35rem;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(48%, 120px);
+  height: 1px;
+  background-color: currentColor;
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-snappy), opacity 0.3s var(--ease-snappy);
+  opacity: 0.75;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1.08);
+  opacity: 1;
+}
+
+/* .container-custom removed — global container handled via layout components */
+
+/* ========================================
+  CUSTOM SCROLLBAR
+======================================== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-collective-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-collective-bg);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-collective-accent);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-collective-bg) var(--color-collective-cream);
+}
+
+/* ========================================
+   FOCUS & SELECTION
+   ======================================== */
+*:focus-visible {
+  outline: 2px solid var(--color-collective-accent);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+::selection {
+  background-color: var(--color-collective-accent);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--color-collective-accent);
+  color: white;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+  }
+  to { 
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from { 
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Subtle fade-up used for section headers */
+@keyframes fadeUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 420ms var(--ease-fluid) both;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeUp,
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-down,
+  .animate-scale-in,
+  .animate-pulse {
+    animation: none !important;
+  }
 }
