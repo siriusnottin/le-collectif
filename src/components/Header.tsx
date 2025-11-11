@@ -21,16 +21,10 @@ export default function Header() {
 			<nav
 				className={`${navTextClasses} flex items-center justify-around gap-10`}
 			>
-				<Link
-					href="/catalogue"
-					className="transition hover:opacity-75 p-3 cursor-pointer"
-				>
+				<Link href="/catalogue" className="p-3 cursor-pointer">
 					Catalogue
 				</Link>
-				<Link
-					href="/about"
-					className="transition hover:opacity-75 p-3 cursor-pointer"
-				>
+				<Link href="/about" className="p-3 cursor-pointer">
 					À propos
 				</Link>
 				<Link
@@ -44,16 +38,10 @@ export default function Header() {
 						className="h-12 w-auto"
 					/>
 				</Link>
-				<Link
-					href="/contact"
-					className="transition hover:opacity-75 p-3 cursor-pointer"
-				>
+				<Link href="/contact" className="p-3 cursor-pointer">
 					Contact
 				</Link>
-				<button
-					type="button"
-					className="transition hover:opacity-75 p-3 cursor-pointer"
-				>
+				<button type="button" className="p-3 cursor-pointer">
 					Panier
 				</button>
 			</nav>
