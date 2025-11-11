@@ -15,7 +15,7 @@ export default function ButtonLink({
   children,
   className = '',
 }: ButtonLinkProps) {
-  const base = 'inline-block px-6 py-3 text-center';
+  const base = 'inline-block px-6 py-4 md:py-3 text-center';
   const styles =
 		variant === 'primary'
 			? 'bg-[#8B6B4E] text-white shadow'
