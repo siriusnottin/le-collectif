@@ -2,16 +2,17 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import Logo from './Logo';
 
 export default function Questionnaire() {
 	return (
 		<div className="min-h-screen grid grid-cols-1 md:grid-cols-[1.15fr_1fr]">
-			<div className="bg-[#3b2a21] text-collective-cream px-6 py-8 md:px-8 md:py-12 flex">
+			<div className="bg-[#3b2a21] text-brand-antique-white px-6 py-8 md:px-8 md:py-12 flex">
 				<div className="flex flex-col w-full min-h-full">
 					<div className="flex justify-end">
 						<Link
 							href="/questionnaire/questions/1"
-							className="text-xs italic md:text-sm text-collective-cream/70 hover:text-collective-cream transition"
+							className="text-xs italic md:text-sm text-brand-antique-white/70 hover:text-brand-antique-white transition"
 						>
 							Commencer le questionnaire →
 						</Link>
@@ -41,7 +42,7 @@ export default function Questionnaire() {
 						</div>
 					</div>
 
-					<div className="text-left text-sm md:text-base leading-6 text-collective-cream/80 max-w-md">
+					<div className="text-left text-sm md:text-base leading-6 text-brand-antique-white/80 max-w-md">
 						<p>
 							Et si votre intérieur révélait votre personnalité ? Répondez à
 							quelques questions simples et découvrez l’ambiance qui vous
@@ -64,14 +65,12 @@ export default function Questionnaire() {
 					className="flex items-center justify-center"
 					aria-labelledby="questionnaire-logo-description"
 				>
-					<Image
-						src="/logo-dark.svg"
-						alt=""
-						role="presentation"
-						width={260}
-						height={116}
-						priority
+					<Logo
+						variant="light"
+						className="w-[260px] h-[116px]"
+						ariaLabel={'le collectif — studio design d’intérieur'}
 					/>
+
 					<figcaption id="questionnaire-logo-description" className="sr-only">
 						Text reads “le collectif” with the tagline “studio design
 						d’intérieur”.

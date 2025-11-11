@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import Logo from './Logo';
 import {usePathname} from 'next/navigation';
 import {useRef, useEffect} from 'react';
 import gsap from 'gsap';
@@ -12,9 +12,11 @@ export default function Header() {
 	const wrapperClasses = isHome
 		? 'absolute inset-x-0 top-0 z-50'
 		: 'relative inset-x-0 top-0 z-50 col-span-12 bg-white backdrop-blur';
-	const navTextClasses = isHome ? 'text-white' : 'text-[#4B3F32]';
-	const logoSrc = isHome ? '/logo-light.svg' : '/logo-dark.svg';
-	const logoAltLabel = "Logo reading 'le collectif' with tagline 'studio design d\'intérieur'";
+	const navTextClasses = isHome
+? 'text-brand-floral-white'
+: 'text-brand-fench-bistre';
+	const logoAltLabel =
+"Logo reading 'le collectif' with tagline 'studio design d'intérieur'";
 
 	// refs for animation context
 	const rootRef = useRef<HTMLElement | null>(null);
@@ -87,14 +89,10 @@ export default function Header() {
 					className="flex flex-col items-center cursor-pointer"
 					data-nav-item
 				>
-					<Image
-						src={logoSrc}
-						alt={logoAltLabel}
-						aria-hidden={false}
-						width={1446}
-						height={646}
+					<Logo
+						variant={isHome ? 'light' : 'dark'}
+						ariaLabel={logoAltLabel}
 						className="h-12 w-auto"
-						priority={isHome}
 					/>
 				</Link>
 				<Link

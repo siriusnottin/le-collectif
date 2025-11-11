@@ -2,14 +2,25 @@
 
 @theme {
   /* ========================================
-     COLLECTIVE COLORS
-     ======================================== */
-  --color-collective-bg: #5e5240;
-  --color-collective-bg-dark: #4a4133;
-  --color-collective-cream: #fcfcf9;
-  --color-collective-accent: #21808d;
-  --color-collective-accent-light: #32b8c6;
-  --color-collective-accent-dark: #1d7480;
+    BRANDING (designer palette)
+    ======================================== */
+  --brand-antique-white: #F5EBDD;      /* Antique White */
+  --brand-fench-bistre: #8B6B4E;       /* Fench Bistre */
+  --brand-floral-white: #FCF8F3;       /* Floral White */
+  --brand-desert-sand: #E6CCB2;        /* Desert Sand */
+  --brand-cola: #3C2F28;               /* Cola */
+  --brand-black-chocolate: #1B1512;    /* Black chocolate */
+
+  /* ========================================
+    BRAND SEMANTIC TOKENS
+    New canonical token names used across the codebase.
+    ======================================== */
+  --color-brand-antique-white: var(--brand-antique-white);
+  --color-brand-fench-bistre: var(--brand-fench-bistre);
+  --color-brand-floral-white: var(--brand-floral-white);
+  --color-brand-desert-sand: var(--brand-desert-sand);
+  --color-brand-cola: var(--brand-cola);
+  --color-brand-black-chocolate: var(--brand-black-chocolate);
 
   /* ========================================
      COLOR PALETTE
@@ -108,6 +119,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ========================================
+   BRAND UTILITY ALIASES (keeps Tailwind-like usage)
+   These provide easy-to-use CSS classes that map to the designer tokens.
+   Add more as needed when new patterns appear in the UI.
+   ======================================== */
+.bg-brand-floral-white { background-color: var(--brand-floral-white); }
+.bg-brand-desert-sand { background-color: var(--brand-desert-sand); }
+.bg-brand-fench-bistre { background-color: var(--brand-fench-bistre); }
+.bg-brand-cola { background-color: var(--brand-cola); }
+.bg-brand-black-chocolate { background-color: var(--brand-black-chocolate); }
+
+.text-brand-antique-white { color: var(--brand-antique-white); }
+.text-brand-floral-white { color: var(--brand-floral-white); }
+.text-brand-desert-sand { color: var(--brand-desert-sand); }
+.text-brand-fench-bistre { color: var(--brand-fench-bistre); }
+.text-brand-cola { color: var(--brand-cola); }
+.text-brand-black-chocolate { color: var(--brand-black-chocolate); }
+
+/* Make Tailwind's .text-white use the brand floral white across the site */
+.text-white { color: var(--brand-floral-white) !important; }
+
+.border-brand-fench-bistre { border-color: var(--brand-fench-bistre); }
+.ring-brand-fench-bistre { --tw-ring-color: var(--brand-fench-bistre); }
+
+.hover\:text-brand-desert-sand:hover { color: var(--brand-desert-sand); }
+.hover\:text-brand-fench-bistre:hover { color: var(--brand-fench-bistre); }
+
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-display);
   font-weight: 400;
@@ -119,8 +158,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 .btn-primary {
-  background-color: var(--color-collective-accent);
-  color: white;
+  background-color: var(--brand-fench-bistre);
+  color: var(--brand-floral-white);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -137,7 +176,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: var(--color-collective-accent-dark);
+  background-color: var(--brand-cola);
   transform: scale(1.05);
 }
 
@@ -146,8 +185,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary {
-  background-color: var(--color-collective-bg);
-  color: var(--color-collective-cream);
+  background-color: var(--brand-floral-white);
+  color: var(--brand-antique-white);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -164,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-collective-bg-dark);
+  background-color: var(--brand-desert-sand);
 }
 
 .btn-secondary:active {
@@ -219,41 +258,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-collective-cream);
+  background: var(--brand-cola);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-collective-bg);
+  background: var(--brand-black-chocolate);
   border-radius: 5px;
+  border: 2px solid transparent; /* creates a small gap if desired */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-collective-accent);
+  background: var(--brand-fench-bistre);
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-collective-bg) var(--color-collective-cream);
+  /* thumb color, track color */
+  scrollbar-color: var(--brand-black-chocolate) var(--brand-cola);
 }
 
 /* ========================================
    FOCUS & SELECTION
    ======================================== */
 *:focus-visible {
-  outline: 2px solid var(--color-collective-accent);
+  outline: 2px solid var(--brand-fench-bistre);
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
 
 ::selection {
-  background-color: var(--color-collective-accent);
-  color: white;
+  background-color: var(--brand-fench-bistre);
+  color: var(--brand-floral-white);
 }
 
 ::-moz-selection {
-  background-color: var(--color-collective-accent);
-  color: white;
+  background-color: var(--brand-fench-bistre);
+  color: var(--brand-floral-white);
 }
 
 /* ========================================
