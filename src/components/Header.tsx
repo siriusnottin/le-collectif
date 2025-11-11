@@ -9,7 +9,7 @@ export default function Header() {
 	const isHome = pathname === '/';
 	const wrapperClasses = isHome
 		? 'absolute inset-x-0 top-0 z-50'
-		: 'relative inset-x-0 top-0 z-50 col-span-12 bg-white backdrop-blur';
+		: 'relative inset-x-0 top-0 z-50 col-span-12 bg-white';
 	const navTextClasses = isHome
 		? 'text-brand-floral-white'
 		: 'text-brand-fench-bistre';
