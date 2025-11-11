@@ -6,7 +6,7 @@ import Logo from './Logo';
 
 export default function Questionnaire() {
 	return (
-		<div className="min-h-screen grid grid-cols-1 md:grid-cols-[1.15fr_1fr]">
+		<>
 			<div className="bg-[#3b2a21] text-brand-antique-white px-6 py-8 md:px-8 md:py-12 flex">
 				<div className="flex flex-col w-full min-h-full">
 					<div className="flex justify-end">
@@ -77,6 +77,6 @@ export default function Questionnaire() {
 					</figcaption>
 				</figure>
 			</div>
-		</div>
+		</>
 	);
 }

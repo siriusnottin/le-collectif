@@ -3,7 +3,6 @@
 
 import {useState} from 'react';
 import CataloguePageGrid from '@/components/CataloguePageGrid';
-// using native <img> so cards can have natural variable heights for a masonry layout
 
 const categories = ['Toutes', 'Meubles', 'Literies', 'Décorations', 'Assises', 'Luminaires'] as const;
 
@@ -142,8 +141,8 @@ export default function CataloguePage() {
 										type="button"
 										aria-pressed={active}
 										onClick={() => setSelectedCategory(label)}
-										className={`flex items-center whitespace-nowrap text-left ${active ? 'text-[#5C4334] before:content-["►"] before:inline-block before:mr-2 before:w-4 before:visible' : 'before:content-[""] before:inline-block before:mr-2 before:w-4 before:invisible'}`}
-										>
+										className={`flex items-center whitespace-nowrap text-left ${active ? 'text-[#5C4334] before:content-["►"] before:inline-block before:mr-2 before:w-4 before:visible' : 'before:content-["\"] before:inline-block before:mr-2 before:w-4 before:invisible'}`}
+									>
 										{label}
 									</button>
 								</li>

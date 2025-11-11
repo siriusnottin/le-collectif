@@ -1,7 +1,6 @@
 import type {Metadata} from 'next';
 import {Playfair_Display, DM_Sans} from 'next/font/google';
 import './globals.css';
-import SiteFrame from '@/components/SiteFrame';
 
 const playfair = Playfair_Display({
 	subsets: ['latin'],
@@ -31,9 +30,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="fr" className={`${playfair.variable} ${dmSans.variable}`}>
-			<body className="antialiased">
-				<SiteFrame>{children}</SiteFrame>
-			</body>
+			<body className="antialiased">{children}</body>
 		</html>
 	);
 }

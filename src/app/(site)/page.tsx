@@ -5,7 +5,6 @@ import CTASection from '@/components/CTASection';
 import Moodboard from '@/components/Moodboard';
 import CatalogueGrid from '@/components/CatalogueGrid';
 import InteriorGrid from '@/components/InteriorGrid';
-// inlined styles from page.module.css to avoid separate css module
 
 const moodboardImages = [
 	{

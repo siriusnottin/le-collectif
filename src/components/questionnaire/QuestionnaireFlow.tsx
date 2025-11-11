@@ -186,8 +186,8 @@ function Sidebar({
      }
    }, [currentQuestion, isSelected, handleSelect]);
   if (!currentQuestion) {
-    return (
-			<div className="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_1.6fr]">
+		return (
+			<>
 				<Sidebar
 					questionIndex={safeQuestionIndex}
 					totalQuestions={questions.length}
@@ -200,70 +200,70 @@ function Sidebar({
 						</div>
 					</div>
 				</section>
-			</div>
+			</>
 		);
-  }
+	}
 
-   return (
-			<div className="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] bg-[#3C2F28]">
-				<Sidebar
-					questionTitle={currentQuestion.title}
-					questionIndex={safeQuestionIndex}
-					totalQuestions={questions.length}
-				/>
+	return (
+		<>
+			<Sidebar
+				questionTitle={currentQuestion.title}
+				questionIndex={safeQuestionIndex}
+				totalQuestions={questions.length}
+			/>
 
-				{/* Main content */}
-				<section className="flex flex-col">
-					<div className="p-6 lg:p-8 w-full">
-						{error && (
-							<div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
-								<p className="text-red-800">{error}</p>
-							</div>
-						)}
-						{renderOptions()}
-					</div>
-
-					{/* Footer with navigation */}
-					<div
-						className={`w-full border-t pt-4 px-6 lg:px-8 ${
-							currentQuestion.type === 'material' ||
-							currentQuestion.type === 'color'
-								? 'border-brand-antique-white/30'
-								: 'border-transparent'
-						}`}
-					>
-						<div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-							{isLastQuestion ? (
-								<button
-									onClick={handleSubmit}
-									disabled={!isAnswered || isSubmitting}
-									className="bg-brand-fench-bistre text-white px-5 py-2 rounded-md shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
-									type="button"
-								>
-									{isSubmitting ? 'Chargement...' : 'Voir mon profil'}
-								</button>
-							) : isFirstQuestion ? null : (
-								<button
-									onClick={handleNext}
-									disabled={!isAnswered}
-									className={`$${
-										currentQuestion.type === 'material' ||
-										currentQuestion.type === 'color'
-											? 'bg-transparent border border-brand-fench-bistre text-brand-fench-bistre px-5 py-2 rounded-md'
-											: 'bg-brand-fench-bistre/50 text-white px-5 py-2 rounded-md opacity-80 disabled:opacity-40'
-									} disabled:opacity-50 disabled:cursor-not-allowed`}
-									type="button"
-								>
-									{currentQuestion.type === 'material'
-										? 'Choisir ces échantillons'
-										: currentQuestion.type === 'color'
-										? 'Choisir ces couleurs'
-										: 'Suivant →'}
-								</button>
-							)}
+			{/* Main content */}
+			<section className="flex flex-col">
+				<div className="p-6 lg:p-8 w-full">
+					{error && (
+						<div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
+							<p className="text-red-800">{error}</p>
 						</div>
+					)}
+					{renderOptions()}
+				</div>
+
+				{/* Footer with navigation */}
+				<div
+					className={`w-full border-t pt-4 px-6 lg:px-8 ${
+						currentQuestion.type === 'material' ||
+						currentQuestion.type === 'color'
+							? 'border-brand-antique-white/30'
+							: 'border-transparent'
+					}`}
+				>
+					<div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+						{isLastQuestion ? (
+							<button
+								onClick={handleSubmit}
+								disabled={!isAnswered || isSubmitting}
+								className="bg-brand-fench-bistre text-white px-5 py-2 rounded-md shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+								type="button"
+							>
+								{isSubmitting ? 'Chargement...' : 'Voir mon profil'}
+							</button>
+						) : isFirstQuestion ? null : (
+							<button
+								onClick={handleNext}
+								disabled={!isAnswered}
+								className={`$${
+									currentQuestion.type === 'material' ||
+									currentQuestion.type === 'color'
+										? 'bg-transparent border border-brand-fench-bistre text-brand-fench-bistre px-5 py-2 rounded-md'
+										: 'bg-brand-fench-bistre/50 text-white px-5 py-2 rounded-md opacity-80 disabled:opacity-40'
+								} disabled:opacity-50 disabled:cursor-not-allowed`}
+								type="button"
+							>
+								{currentQuestion.type === 'material'
+									? 'Choisir ces échantillons'
+									: currentQuestion.type === 'color'
+									? 'Choisir ces couleurs'
+									: 'Suivant →'}
+							</button>
+						)}
 					</div>
-				</section>
-			</div>
-		);
+				</div>
+			</section>
+		</>
+	);
  }

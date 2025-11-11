@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import SectionHeader from '@/components/SectionHeader';
 import AnimatedLink from '@/components/AnimatedLink';
@@ -35,9 +34,7 @@ export default function AboutPage() {
 			{/* Intro two-column concept (mobile stacked -> md subgrid) */}
 			<section className="col-span-12 mt-8 grid grid-cols-1 md:grid-cols-subgrid gap-4 items-start">
 				<div className="col-span-1 md:col-span-6">
-					<h3 className="font-serif text-4xl text-[#2F2A23] mb-4">
-						Le concept
-					</h3>
+					<h3 className="font-serif text-4xl text-[#2F2A23] mb-4">Le concept</h3>
 					<p className="text-sm text-[#4B3F32] mb-4">
 						N&eacute; d&apos;un collectif de cr&eacute;atifs passionn&eacute;s,
 						notre studio repense la mani&egrave;re de concevoir le design
@@ -94,12 +91,7 @@ export default function AboutPage() {
 				</div>
 				<div className="col-span-1 md:col-span-3">
 					<div className="w-full h-40 md:h-56 relative">
-						<Image
-							src="/images/questionnaire/materials/material-linen.jpg"
-							alt="method 2"
-							fill
-							className="object-cover"
-						/>
+						<Image src="/images/questionnaire/materials/material-linen.jpg" alt="method 2" fill className="object-cover" />
 						<div className="absolute inset-0 flex items-center justify-center text-white font-semibold uppercase">
 							<span className="text-sm md:text-base">
 								IMAGINER
@@ -111,12 +103,7 @@ export default function AboutPage() {
 				</div>
 				<div className="col-span-1 md:col-span-3">
 					<div className="w-full h-40 md:h-56 relative">
-						<Image
-							src="/images/profile/nature-contemporaine/nature-contemporary-2.jpg"
-							alt="method 3"
-							fill
-							className="object-cover"
-						/>
+						<Image src="/images/profile/nature-contemporaine/nature-contemporary-2.jpg" alt="method 3" fill className="object-cover" />
 						<div className="absolute inset-0 flex items-center justify-center text-white font-semibold uppercase">
 							<span className="text-sm md:text-base">
 								ACCOMPAGNER
@@ -129,41 +116,25 @@ export default function AboutPage() {
 			</section>
 
 			{/* Team */}
-			<SectionHeader
-				eyebrow="Derrière vos intérieurs"
-				heading="L'équipe"
-				className="col-span-12 mt-12"
-			/>
+			<SectionHeader eyebrow="Derrière vos intérieurs" heading="L'équipe" className="col-span-12 mt-12" />
 
 			<section className="col-span-12 mt-6">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					{/* Member 1 */}
 					<div className="flex items-center md:flex-col md:items-center gap-4">
 						<div className="w-20 h-16 md:w-40 md:h-28 relative shrink-0">
-							<Image
-								src="/images/profile/ton-interieur.jpg"
-								alt="Manon Duprés"
-								fill
-								className="object-cover rounded"
-							/>
+							<Image src="/images/profile/ton-interieur.jpg" alt="Manon Duprés" fill className="object-cover rounded" />
 						</div>
 						<div className="md:text-center">
 							<p className="text-sm font-semibold">MANON DUPR&Eacute;S</p>
-							<p className="text-xs text-[#9C8F80]">
-								CEO de &quot;le collectif&quot;
-							</p>
+							<p className="text-xs text-[#9C8F80]">CEO de &quot;le collectif&quot;</p>
 						</div>
 					</div>
 
 					{/* Member 2 */}
 					<div className="flex items-center md:flex-col md:items-center gap-4">
 						<div className="w-20 h-16 md:w-40 md:h-28 relative shrink-0">
-							<Image
-								src="/images/profile/chaleur-artisanale/artisanal-living.jpg"
-								alt="Nicolas Rouije"
-								fill
-								className="object-cover rounded"
-							/>
+							<Image src="/images/profile/chaleur-artisanale/artisanal-living.jpg" alt="Nicolas Rouije" fill className="object-cover rounded" />
 						</div>
 						<div className="md:text-center">
 							<p className="text-sm font-semibold">NICOLAS ROUJIE</p>
@@ -174,12 +145,7 @@ export default function AboutPage() {
 					{/* Member 3 */}
 					<div className="flex items-center md:flex-col md:items-center gap-4">
 						<div className="w-20 h-16 md:w-40 md:h-28 relative shrink-0">
-							<Image
-								src="/images/profile/elegance-moderne/elegance-kitchen-marble.jpg"
-								alt="Angélique Vutel"
-								fill
-								className="object-cover rounded"
-							/>
+							<Image src="/images/profile/elegance-moderne/elegance-kitchen-marble.jpg" alt="Angélique Vutel" fill className="object-cover rounded" />
 						</div>
 						<div className="md:text-center">
 							<p className="text-sm font-semibold">ANGÉLIQUE VUTEL</p>
@@ -191,12 +157,8 @@ export default function AboutPage() {
 
 			{/* CTA (full-width) */}
 			<section className="col-span-12 text-center my-12">
-				<h3 className="font-serif text-2xl">
-					Et si votre intérieur révélait votre personnalité ?
-				</h3>
-				<AnimatedLink href="/questionnaire" className="mt-4 inline-block">
-					Découvrir votre profil décoratif
-				</AnimatedLink>
+				<h3 className="font-serif text-2xl">Et si votre intérieur révélait votre personnalité ?</h3>
+				<AnimatedLink href="/questionnaire" className="mt-4 inline-block">Découvrir votre profil décoratif</AnimatedLink>
 			</section>
 		</>
 	);
