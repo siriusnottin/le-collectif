@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import ButtonLink from './ButtonLink';
+import Logo from './Logo';
 
 export default function Footer() {
 	const currentYear = new Date().getFullYear();
@@ -9,13 +9,10 @@ export default function Footer() {
 		<footer className="bg-brand-cola text-brand-floral-white py-8 grid grid-cols-1 md:grid-cols-subgrid col-span-12 gap-6 px-6 text-sm font-sans">
 			<div className="col-span-2 mb-6">
 				<Link href="/" aria-label="Le Collectif - accueil">
-					<Image
-						src="/logo-light.svg"
-						alt="Le Collectif"
-						width={220}
-						height={64}
-						priority={false}
-						className="block"
+					<Logo
+						variant="light"
+						ariaLabel="Le Collectif"
+						className="block h-16 w-auto"
 					/>
 				</Link>
 			</div>

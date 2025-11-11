@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import Logo from './Logo';
 
 export default function Questionnaire() {
 	return (
@@ -64,14 +65,12 @@ export default function Questionnaire() {
 					className="flex items-center justify-center"
 					aria-labelledby="questionnaire-logo-description"
 				>
-					<Image
-						src="/logo-dark.svg"
-						alt=""
-						role="presentation"
-						width={260}
-						height={116}
-						priority
+					<Logo
+						variant="light"
+						className="w-[260px] h-[116px]"
+						ariaLabel={'le collectif — studio design d’intérieur'}
 					/>
+
 					<figcaption id="questionnaire-logo-description" className="sr-only">
 						Text reads “le collectif” with the tagline “studio design
 						d’intérieur”.

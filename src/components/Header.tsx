@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import Logo from './Logo';
 import {usePathname} from 'next/navigation';
 import {useRef, useEffect} from 'react';
 import gsap from 'gsap';
@@ -89,14 +89,10 @@ export default function Header() {
 					className="flex flex-col items-center cursor-pointer"
 					data-nav-item
 				>
-					<Image
-						src={logoSrc}
-						alt={logoAltLabel}
-						aria-hidden={false}
-						width={1446}
-						height={646}
+					<Logo
+						variant={isHome ? 'light' : 'dark'}
+						ariaLabel={logoAltLabel}
 						className="h-12 w-auto"
-						priority={isHome}
 					/>
 				</Link>
 				<Link
