@@ -12,9 +12,11 @@ export default function Header() {
 	const wrapperClasses = isHome
 		? 'absolute inset-x-0 top-0 z-50'
 		: 'relative inset-x-0 top-0 z-50 col-span-12 bg-white backdrop-blur';
-	const navTextClasses = isHome ? 'text-white' : 'text-[#4B3F32]';
-	const logoSrc = isHome ? '/logo-light.svg' : '/logo-dark.svg';
-	const logoAltLabel = "Logo reading 'le collectif' with tagline 'studio design d\'intérieur'";
+	const navTextClasses = isHome
+? 'text-brand-floral-white'
+: 'text-brand-fench-bistre';
+	const logoAltLabel =
+"Logo reading 'le collectif' with tagline 'studio design d'intérieur'";
 
 	// refs for animation context
 	const rootRef = useRef<HTMLElement | null>(null);
