@@ -21,16 +21,16 @@ export default function Header() {
 			<nav
 				className={`${navTextClasses} flex items-center justify-around gap-10`}
 			>
-				<Link href="/catalogue" className="p-3 cursor-pointer">
+				<Link href="/catalogue" className="p-3">
 					Catalogue
 				</Link>
-				<Link href="/about" className="p-3 cursor-pointer">
+				<Link href="/about" className="p-3">
 					À propos
 				</Link>
 				<Link
 					href="/"
 					aria-label="Le Collectif — Studio design d'intérieur"
-					className="flex flex-col items-center cursor-pointer"
+					className="flex flex-col items-center"
 				>
 					<Logo
 						variant={isHome ? 'light' : 'dark'}
@@ -38,10 +38,10 @@ export default function Header() {
 						className="h-12 w-auto"
 					/>
 				</Link>
-				<Link href="/contact" className="p-3 cursor-pointer">
+				<Link href="/contact" className="p-3">
 					Contact
 				</Link>
-				<button type="button" className="p-3 cursor-pointer">
+				<button type="button" className="p-3">
 					Panier
 				</button>
 			</nav>
