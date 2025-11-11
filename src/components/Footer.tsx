@@ -6,7 +6,7 @@ export default function Footer() {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="bg-collective-bg text-collective-cream py-2 grid grid-cols-1 md:grid-cols-subgrid col-span-12 gap-2 px-2 text-sm font-sans">
+		<footer className="bg-brand-cola text-brand-floral-white py-8 grid grid-cols-1 md:grid-cols-subgrid col-span-12 gap-6 px-6 text-sm font-sans">
 			<div className="col-span-2 mb-6">
 				<Link href="/" aria-label="Le Collectif - accueil">
 					<Image
@@ -22,28 +22,13 @@ export default function Footer() {
 			<div className="py-10 col-span-12 grid grid-cols-subgrid">
 				<ul className="col-span-2 space-y-1">
 					<li>
-						<Link
-							href="/catalogue"
-							className="hover:text-collective-accent-light transition-colors"
-						>
-							Catalogue
-						</Link>
+						<Link href="/catalogue">Catalogue</Link>
 					</li>
 					<li>
-						<Link
-							href="/about"
-							className="hover:text-collective-accent-light transition-colors"
-						>
-							À propos
-						</Link>
+						<Link href="/about">À propos</Link>
 					</li>
 					<li>
-						<Link
-							href="/contact"
-							className="hover:text-collective-accent-light transition-colors"
-						>
-							Contact
-						</Link>
+						<Link href="/contact">Contact</Link>
 					</li>
 				</ul>
 
@@ -61,18 +46,12 @@ export default function Footer() {
 					Répondre au questionnaire
 				</ButtonLink>
 			</div>
-			<div className="col-span-12 flex flex-row justify-between">
-				<Link
-					href="/mentions-legales"
-					className="hover:text-collective-accent-light transition-colors"
-				>
-					Mentions légales
-				</Link>
-				<p>Copyright {currentYear}</p>
-				<Link
-					href="/politique-de-confidentialite"
-					className="hover:text-collective-accent-light transition-colors"
-				>
+			<div className="col-span-12 flex flex-row justify-between items-center">
+				<Link href="/mentions-legales">Mentions légales</Link>
+
+				<p className="opacity-80">Copyright {currentYear}</p>
+
+				<Link href="/politique-de-confidentialite">
 					Politiques de confidentialité
 				</Link>
 			</div>
