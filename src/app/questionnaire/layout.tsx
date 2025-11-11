@@ -8,10 +8,8 @@ export const metadata: Metadata = {
 
 export default function QuestionnaireLayout({children}: PropsWithChildren) {
 	return (
-		<MainAnimator>
-			<div className="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_1.6fr]">
-				{children}
-			</div>
+		<MainAnimator className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
+			{children}
 		</MainAnimator>
 	);
 }

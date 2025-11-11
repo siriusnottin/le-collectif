@@ -6,7 +6,11 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {usePathname} from 'next/navigation';
 gsap.registerPlugin(ScrollTrigger);
 
-export default function MainAnimator({children}: PropsWithChildren) {
+type MainAnimatorProps = PropsWithChildren & {
+	className?: string;
+};
+
+export default function MainAnimator({children, className}: MainAnimatorProps) {
 	const mainRef = useRef<HTMLElement | null>(null);
 	const pathname = usePathname();
 
@@ -55,10 +59,7 @@ export default function MainAnimator({children}: PropsWithChildren) {
 	}, [pathname]);
 
 	return (
-		<main
-			ref={mainRef}
-			className="min-h-screen grid grid-cols-subgrid col-span-12 gap-2 m-2"
-		>
+		<main ref={mainRef} className={className ?? 'min-h-screen'}>
 			{children}
 		</main>
 	);
