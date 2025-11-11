@@ -29,22 +29,27 @@ function Sidebar({
   return (
 		<aside className="flex flex-col justify-between gap-6 p-6 lg:p-8 bg-[#3C2F28] text-[#E7C9B2]">
 			<header className="space-y-2">
-        {HEADER_STRIPS.map(({src, alt, label, align}) => (
-          <div key={src} className={`w-full flex ${align === 'left' ? 'flex-row-reverse' : 'flex-row'} gap-2`}>
-            <Image
-              src={src}
-              alt={alt}
-              width={444}
-              height={32}
-              sizes="(min-width:1024px) 444px, 100vw"
-              className="object-cover w-full h-auto"
-              priority
-            />
-            <span className="text-white text-sm md:text-base font-serif uppercase tracking-widest block">
-              {label}
-            </span>
-          </div>
-        ))}
+				{HEADER_STRIPS.map(({src, alt, label, align}) => (
+					<div
+						key={src}
+						className={`w-full flex ${
+							align === 'left' ? 'flex-row-reverse' : 'flex-row'
+						} gap-2`}
+					>
+						<Image
+							src={src}
+							alt={alt}
+							width={444}
+							height={32}
+							sizes="(min-width:1024px) 444px, 100vw"
+							className="object-cover w-full h-auto"
+							priority
+						/>
+						<span className="text-white text-sm md:text-base font-serif uppercase tracking-widest block">
+							{label}
+						</span>
+					</div>
+				))}
 			</header>
 
 			{/* Decorative large Question text */}
@@ -59,13 +64,13 @@ function Sidebar({
 
 			<div className="">
 				<div className="pb-6">
-					<div className="text-collective-cream/95">
+					<div className="text-brand-antique-white/95">
 						<p className="text-base md:text-lg">{questionTitle ?? ''}</p>
 					</div>
 
 					<div className="flex items-center gap-4" aria-hidden>
 						<div className="h-0.5 w-full rounded-full bg-[rgba(231,201,178,0.18)]" />
-						<span className="text-sm text-collective-cream/80">
+						<span className="text-sm text-brand-antique-white/80">
 							{questionIndex + 1}/{totalQuestions}
 						</span>
 					</div>
@@ -158,7 +163,11 @@ function Sidebar({
 
    const renderOptions = useCallback(() => {
      if (!currentQuestion) {
-       return <div className="text-center py-8 text-collective-cream bg-[#3C2F28]/95">Question non trouvée</div>;
+       return (
+					<div className="text-center py-8 text-brand-antique-white bg-[#3C2F28]/95">
+						Question non trouvée
+					</div>
+				);
      }
 
      switch (currentQuestion.type) {
@@ -178,16 +187,21 @@ function Sidebar({
    }, [currentQuestion, isSelected, handleSelect]);
   if (!currentQuestion) {
     return (
-      <div className="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_1.6fr]">
-        <Sidebar questionIndex={safeQuestionIndex} totalQuestions={questions.length} />
+			<div className="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_1.6fr]">
+				<Sidebar
+					questionIndex={safeQuestionIndex}
+					totalQuestions={questions.length}
+				/>
 
-        <section className="flex flex-col bg-[#3C2F28]/95 justify-center">
-          <div className="p-6 lg:p-8 w-full">
-            <div className="text-center py-8 text-collective-cream">Chargement du questionnaire...</div>
-          </div>
-        </section>
-      </div>
-    );
+				<section className="flex flex-col bg-[#3C2F28]/95 justify-center">
+					<div className="p-6 lg:p-8 w-full">
+						<div className="text-center py-8 text-brand-antique-white">
+							Chargement du questionnaire...
+						</div>
+					</div>
+				</section>
+			</div>
+		);
   }
 
    return (
@@ -214,7 +228,7 @@ function Sidebar({
 						className={`w-full border-t pt-4 px-6 lg:px-8 ${
 							currentQuestion.type === 'material' ||
 							currentQuestion.type === 'color'
-								? 'border-collective-cream/30'
+								? 'border-brand-antique-white/30'
 								: 'border-transparent'
 						}`}
 					>
@@ -223,7 +237,7 @@ function Sidebar({
 								<button
 									onClick={handleSubmit}
 									disabled={!isAnswered || isSubmitting}
-									className="bg-collective-accent text-white px-5 py-2 rounded-md shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+									className="bg-brand-fench-bistre text-white px-5 py-2 rounded-md shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
 									type="button"
 								>
 									{isSubmitting ? 'Chargement...' : 'Voir mon profil'}
@@ -232,11 +246,11 @@ function Sidebar({
 								<button
 									onClick={handleNext}
 									disabled={!isAnswered}
-									className={`${
+									className={`$${
 										currentQuestion.type === 'material' ||
 										currentQuestion.type === 'color'
-											? 'bg-transparent border border-collective-accent text-collective-accent px-5 py-2 rounded-md'
-											: 'bg-collective-accent/50 text-white px-5 py-2 rounded-md opacity-80 disabled:opacity-40'
+											? 'bg-transparent border border-brand-fench-bistre text-brand-fench-bistre px-5 py-2 rounded-md'
+											: 'bg-brand-fench-bistre/50 text-white px-5 py-2 rounded-md opacity-80 disabled:opacity-40'
 									} disabled:opacity-50 disabled:cursor-not-allowed`}
 									type="button"
 								>
