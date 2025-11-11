@@ -5,56 +5,58 @@ import {usePathname} from 'next/navigation';
 import Header from './Header';
 import Footer from './Footer';
 import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SiteFrame({children}: PropsWithChildren) {
-  const pathname = usePathname();
-  const isQuestionnaire = pathname?.startsWith('/questionnaire');
-  const mainRef = useRef<HTMLElement | null>(null);
-  const headerRef = useRef<HTMLElement | null>(null);
+	const pathname = usePathname();
+	const isQuestionnaire = pathname?.startsWith('/questionnaire');
+	const mainRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    if (isQuestionnaire) return; // skip anim for questionnaire pages
+	useEffect(() => {
+		if (isQuestionnaire) return; // skip anim for questionnaire pages
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
+		const ctx = gsap.context(() => {
+			const tl = gsap.timeline();
 
-      // animate main upwards from off-screen bottom using viewport height
-      const fromY = typeof window !== 'undefined' ? window.innerHeight * 0.9 : 600;
-      tl.fromTo(
-        mainRef.current,
-        {y: fromY, autoAlpha: 0},
-        {y: 0, autoAlpha: 1, duration: 0.8, ease: 'power3.out'}
-      );
+			const fromY =
+				typeof window !== 'undefined' ? window.innerHeight * 0.9 : 600;
+			tl.fromTo(
+				mainRef.current,
+				{y: fromY, autoAlpha: 0},
+				{y: 0, autoAlpha: 1, duration: 0.8, ease: 'power3.out'}
+			);
 
-      // then reveal header
-      tl.fromTo(
-        '[data-header]',
-        {y: -20, autoAlpha: 0},
-        {y: 0, autoAlpha: 1, duration: 0.45, ease: 'power3.out'},
-        '-=0.25'
-      );
+			// After the main entrance completes, refresh ScrollTrigger so
+			// all child ScrollTrigger-based animations recalculate their
+			// start/end positions (prevents mis-timed reveals because the
+			// main element was translated during mount).
+			tl.call(() => {
+				try {
+					ScrollTrigger.refresh();
+				} catch {
+					// no-op if ScrollTrigger isn't present for any reason
+				}
+			});
+		}, mainRef);
 
-      // stagger nav items
-      tl.fromTo(
-        '[data-nav-item]',
-        {y: -10, autoAlpha: 0},
-        {y: 0, autoAlpha: 1, duration: 0.35, stagger: 0.08, ease: 'power3.out'},
-        '-=0.35'
-      );
-    });
+		return () => ctx.revert();
+	}, [pathname, isQuestionnaire]);
 
-    return () => ctx.revert();
-  }, [pathname, isQuestionnaire]);
+	if (isQuestionnaire) {
+		return <main className="min-h-screen">{children}</main>;
+	}
 
-  if (isQuestionnaire) {
-    return <main className="min-h-screen">{children}</main>;
-  }
-
-  return (
-    <div className="grid grid-cols-12">
-      <Header />
-      <main ref={mainRef} className="min-h-screen grid grid-cols-subgrid col-span-12 gap-2 m-2">{children}</main>
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="grid grid-cols-12">
+			<Header />
+			<main
+				ref={mainRef}
+				className="min-h-screen grid grid-cols-subgrid col-span-12 gap-2 m-2"
+			>
+				{children}
+			</main>
+			<Footer />
+		</div>
+	);
 }
